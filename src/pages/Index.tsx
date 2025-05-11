@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/button';
 import MainLayout from '@/components/layout/MainLayout';
 import { Link } from 'react-router-dom';
 import { useAuth } from '@/contexts/AuthContext';
+import { Smartphone } from 'lucide-react';
 
 const Index = () => {
   const { currentUser } = useAuth();
@@ -40,6 +41,15 @@ const Index = () => {
                   </Button>
                 </Link>
               )}
+              
+              <div className="mt-6">
+                <Link to="/download-app">
+                  <Button variant="outline" size="sm" className="border-white text-white hover:bg-white/10 gap-2">
+                    <Smartphone className="h-4 w-4" />
+                    Baixe o app no seu celular
+                  </Button>
+                </Link>
+              </div>
             </div>
             <div className="md:w-1/2">
               <img 
@@ -108,11 +118,19 @@ const Index = () => {
           <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
             Junte-se a milhares de usuários que já estão aproveitando os benefícios do ViagemJá.
           </p>
-          <Link to={currentUser ? "/solicitar-corrida" : "/cadastro"}>
-            <Button size="lg" className="w-full sm:w-auto">
-              {currentUser ? "Solicitar uma corrida" : "Criar uma conta agora"}
-            </Button>
-          </Link>
+          <div className="flex flex-col sm:flex-row justify-center gap-4">
+            <Link to={currentUser ? "/solicitar-corrida" : "/cadastro"}>
+              <Button size="lg" className="w-full sm:w-auto">
+                {currentUser ? "Solicitar uma corrida" : "Criar uma conta agora"}
+              </Button>
+            </Link>
+            <Link to="/download-app">
+              <Button size="lg" variant="outline" className="gap-2 w-full sm:w-auto">
+                <Smartphone className="h-5 w-5" />
+                Baixar o aplicativo
+              </Button>
+            </Link>
+          </div>
         </div>
       </section>
     </MainLayout>
