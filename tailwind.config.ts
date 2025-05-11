@@ -26,7 +26,7 @@ export default {
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
 				primary: {
-					DEFAULT: 'hsl(var(--primary))',
+					DEFAULT: '#0EA5E9', // Changed to a more visible Ocean Blue
 					foreground: 'hsl(var(--primary-foreground))'
 				},
 				secondary: {
@@ -64,9 +64,9 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				},
 				viagemja: {
-					blue: '#1E88E5',
-					darkblue: '#1565C0',
-					lightblue: '#64B5F6',
+					blue: '#0EA5E9', // Updated to Ocean Blue
+					darkblue: '#0284C7', // Darkened Ocean Blue
+					lightblue: '#38BDF8', // Lightened Ocean Blue
 					gray: '#F5F7FA',
 					darkgray: '#4A5568',
 				},
