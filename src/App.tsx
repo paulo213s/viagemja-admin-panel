@@ -11,6 +11,7 @@ import Login from "./pages/Login";
 import Cadastro from "./pages/Cadastro";
 import Admin from "./pages/Admin";
 import NotFound from "./pages/NotFound";
+import SolicitarCorrida from "./pages/SolicitarCorrida";
 
 const queryClient = new QueryClient();
 
@@ -26,6 +27,7 @@ const App = () => (
             <Route path="/login" element={<Login />} />
             <Route path="/cadastro" element={<Cadastro />} />
             <Route path="/admin" element={<Admin />} />
+            <Route path="/solicitar-corrida" element={<SolicitarCorrida />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

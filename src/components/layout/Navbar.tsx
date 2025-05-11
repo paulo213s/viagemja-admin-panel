@@ -2,12 +2,17 @@
 import { Button } from '@/components/ui/button';
 import { useAuth } from '@/contexts/AuthContext';
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 
 export const Navbar = () => {
   const { currentUser, logout } = useAuth();
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    logout();
+    navigate('/');
+  };
 
   return (
     <nav className="bg-white shadow-md py-4 px-6">
@@ -35,17 +40,17 @@ export const Navbar = () => {
           {currentUser ? (
             <div className="flex items-center space-x-4">
               <span className="text-gray-700">Olá, {currentUser.nome.split(' ')[0]}</span>
-              <Button onClick={logout} variant="outline">
+              <Button onClick={handleLogout} variant="outline">
                 Sair
               </Button>
             </div>
           ) : (
             <div className="flex items-center space-x-4">
               <Link to="/login">
-                <Button variant="outline">Login</Button>
+                <Button variant="outline" className="w-full">Login</Button>
               </Link>
               <Link to="/cadastro">
-                <Button>Cadastre-se</Button>
+                <Button className="w-full">Cadastre-se</Button>
               </Link>
             </div>
           )}
@@ -76,7 +81,7 @@ export const Navbar = () => {
                 {currentUser ? (
                   <>
                     <div className="text-gray-700 py-2">Olá, {currentUser.nome.split(' ')[0]}</div>
-                    <Button onClick={logout} className="w-full">
+                    <Button onClick={handleLogout} className="w-full">
                       Sair
                     </Button>
                   </>

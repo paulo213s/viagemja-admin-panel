@@ -23,19 +23,19 @@ const Index = () => {
               {!currentUser ? (
                 <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
                   <Link to="/login">
-                    <Button size="lg" className="bg-white text-viagemja-blue hover:bg-gray-100">
+                    <Button size="lg" className="bg-white text-viagemja-blue hover:bg-gray-100 w-full">
                       Fazer Login
                     </Button>
                   </Link>
                   <Link to="/cadastro">
-                    <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
+                    <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10 w-full">
                       Cadastrar
                     </Button>
                   </Link>
                 </div>
               ) : (
                 <Link to="/solicitar-corrida">
-                  <Button size="lg" className="bg-white text-viagemja-blue hover:bg-gray-100">
+                  <Button size="lg" className="bg-white text-viagemja-blue hover:bg-gray-100 w-full">
                     Solicitar corrida
                   </Button>
                 </Link>
@@ -109,7 +109,7 @@ const Index = () => {
             Junte-se a milhares de usuários que já estão aproveitando os benefícios do ViagemJá.
           </p>
           <Link to={currentUser ? "/solicitar-corrida" : "/cadastro"}>
-            <Button size="lg">
+            <Button size="lg" className="w-full sm:w-auto">
               {currentUser ? "Solicitar uma corrida" : "Criar uma conta agora"}
             </Button>
           </Link>
