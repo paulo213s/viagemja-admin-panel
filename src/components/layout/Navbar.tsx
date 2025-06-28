@@ -28,25 +28,38 @@ export const Navbar = () => {
         </Link>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center space-x-8">
-          <Link to="/" className="text-gray-700 hover:text-viagemja-blue transition font-medium">
-            Chaves de fenda
-          </Link>
-          <Link to="/visao-geral" className="text-gray-700 hover:text-viagemja-blue transition font-medium">
-            Visão geral
-          </Link>
-          <Link to="/como-funciona" className="text-gray-700 hover:text-viagemja-blue transition font-medium">
-            Como funciona
-          </Link>
-          <Link to="/perguntas-frequentes" className="text-gray-700 hover:text-viagemja-blue transition font-medium">
-            Perguntas frequentes
-          </Link>
-          <Link to="/seguranca" className="text-gray-700 hover:text-viagemja-blue transition font-medium">
-            Segurança do motorista
-          </Link>
-          <Link to="/conecte-se" className="text-gray-700 hover:text-viagemja-blue transition font-medium">
-            Conecte-se
-          </Link>
+        <div className="hidden md:flex items-center space-x-6">
+          {/* Serviços */}
+          <div className="flex items-center space-x-6">
+            <Link to="/" className="text-gray-700 hover:text-viagemja-blue transition font-medium">
+              Início
+            </Link>
+            <Link to="/solicitar-corrida" className="text-gray-700 hover:text-viagemja-blue transition font-medium">
+              Solicitar Corrida
+            </Link>
+            <Link to="/como-funciona" className="text-gray-700 hover:text-viagemja-blue transition font-medium">
+              Como Funciona
+            </Link>
+          </div>
+
+          {/* Divisor visual */}
+          <div className="h-6 w-px bg-gray-300"></div>
+
+          {/* Informações */}
+          <div className="flex items-center space-x-6">
+            <Link to="/seguranca" className="text-gray-700 hover:text-viagemja-blue transition font-medium">
+              Segurança
+            </Link>
+            <Link to="/perguntas-frequentes" className="text-gray-700 hover:text-viagemja-blue transition font-medium">
+              FAQ
+            </Link>
+            <Link to="/conecte-se" className="text-gray-700 hover:text-viagemja-blue transition font-medium">
+              Contato
+            </Link>
+          </div>
+
+          {/* Divisor visual */}
+          <div className="h-6 w-px bg-gray-300"></div>
           
           {currentUser?.tipo === 'admin' && (
             <Link to="/admin" className="text-gray-700 hover:text-viagemja-blue transition font-medium">
@@ -68,7 +81,7 @@ export const Navbar = () => {
               </Link>
               <Link to="/cadastro-motorista">
                 <Button className="bg-green-500 hover:bg-green-600 text-white px-6 py-2 rounded-full font-semibold">
-                  Candidate-se para dirigir
+                  Seja um Motorista
                 </Button>
               </Link>
             </div>
@@ -90,22 +103,22 @@ export const Navbar = () => {
             <SheetContent>
               <div className="flex flex-col space-y-4 mt-6">
                 <Link to="/" className="text-gray-700 hover:text-viagemja-blue transition text-lg py-2">
-                  Chaves de fenda
+                  Início
                 </Link>
-                <Link to="/visao-geral" className="text-gray-700 hover:text-viagemja-blue transition text-lg py-2">
-                  Visão geral
+                <Link to="/solicitar-corrida" className="text-gray-700 hover:text-viagemja-blue transition text-lg py-2">
+                  Solicitar Corrida
                 </Link>
                 <Link to="/como-funciona" className="text-gray-700 hover:text-viagemja-blue transition text-lg py-2">
-                  Como funciona
-                </Link>
-                <Link to="/perguntas-frequentes" className="text-gray-700 hover:text-viagemja-blue transition text-lg py-2">
-                  Perguntas frequentes
+                  Como Funciona
                 </Link>
                 <Link to="/seguranca" className="text-gray-700 hover:text-viagemja-blue transition text-lg py-2">
-                  Segurança do motorista
+                  Segurança
+                </Link>
+                <Link to="/perguntas-frequentes" className="text-gray-700 hover:text-viagemja-blue transition text-lg py-2">
+                  FAQ
                 </Link>
                 <Link to="/conecte-se" className="text-gray-700 hover:text-viagemja-blue transition text-lg py-2">
-                  Conecte-se
+                  Contato
                 </Link>
                 {currentUser?.tipo === 'admin' && (
                   <Link to="/admin" className="text-gray-700 hover:text-viagemja-blue transition text-lg py-2">
@@ -126,7 +139,7 @@ export const Navbar = () => {
                     </Link>
                     <Link to="/cadastro-motorista" className="w-full">
                       <Button className="bg-green-500 hover:bg-green-600 text-white w-full">
-                        Candidate-se para dirigir
+                        Seja um Motorista
                       </Button>
                     </Link>
                   </>
