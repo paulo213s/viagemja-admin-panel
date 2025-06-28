@@ -35,12 +35,39 @@ const countryCodes = [
   { code: '+27', country: 'África do Sul', flag: '🇿🇦' }
 ];
 
+const countries = [
+  { value: 'brasil', label: 'Brasil', flag: '🇧🇷' },
+  { value: 'estados-unidos', label: 'Estados Unidos', flag: '🇺🇸' },
+  { value: 'canada', label: 'Canadá', flag: '🇨🇦' },
+  { value: 'argentina', label: 'Argentina', flag: '🇦🇷' },
+  { value: 'chile', label: 'Chile', flag: '🇨🇱' },
+  { value: 'colombia', label: 'Colômbia', flag: '🇨🇴' },
+  { value: 'peru', label: 'Peru', flag: '🇵🇪' },
+  { value: 'uruguai', label: 'Uruguai', flag: '🇺🇾' },
+  { value: 'paraguai', label: 'Paraguai', flag: '🇵🇾' },
+  { value: 'bolivia', label: 'Bolívia', flag: '🇧🇴' },
+  { value: 'equador', label: 'Equador', flag: '🇪🇨' },
+  { value: 'venezuela', label: 'Venezuela', flag: '🇻🇪' },
+  { value: 'reino-unido', label: 'Reino Unido', flag: '🇬🇧' },
+  { value: 'franca', label: 'França', flag: '🇫🇷' },
+  { value: 'alemanha', label: 'Alemanha', flag: '🇩🇪' },
+  { value: 'italia', label: 'Itália', flag: '🇮🇹' },
+  { value: 'espanha', label: 'Espanha', flag: '🇪🇸' },
+  { value: 'portugal', label: 'Portugal', flag: '🇵🇹' },
+  { value: 'china', label: 'China', flag: '🇨🇳' },
+  { value: 'japao', label: 'Japão', flag: '🇯🇵' },
+  { value: 'coreia-do-sul', label: 'Coreia do Sul', flag: '🇰🇷' },
+  { value: 'india', label: 'Índia', flag: '🇮🇳' },
+  { value: 'australia', label: 'Austrália', flag: '🇦🇺' },
+  { value: 'africa-do-sul', label: 'África do Sul', flag: '🇿🇦' }
+];
+
 const CadastroMotorista = () => {
   const [formData, setFormData] = useState({
     email: '',
     telefone: '',
     codigoPais: '+55',
-    cidade: '',
+    pais: '',
     aceitaTermos: false
   });
 
@@ -56,27 +83,27 @@ const CadastroMotorista = () => {
 
   return (
     <MainLayout>
-      <div className="min-h-screen bg-gradient-to-br from-blue-900 via-purple-900 to-indigo-900 flex items-center justify-center px-4 py-8">
+      <div className="min-h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 flex items-center justify-center px-4 py-8">
         <div className="w-full max-w-6xl flex flex-col lg:flex-row items-center gap-12">
           {/* Seção da esquerda - Conteúdo promocional */}
           <div className="flex-1 text-white space-y-6">
             <h1 className="text-4xl lg:text-6xl font-bold leading-tight">
               Ganhe dinheiro dirigindo com a ViagemJá
             </h1>
-            <p className="text-xl lg:text-2xl text-gray-300">
+            <p className="text-xl lg:text-2xl text-gray-200">
               Torne-se um motorista da ViagemJá, defina seu horário e ganhe dinheiro dirigindo!
             </p>
             <div className="space-y-4 text-lg">
               <div className="flex items-center space-x-3">
-                <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+                <div className="w-3 h-3 bg-green-400 rounded-full shadow-lg"></div>
                 <span>Flexibilidade total de horários</span>
               </div>
               <div className="flex items-center space-x-3">
-                <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+                <div className="w-3 h-3 bg-green-400 rounded-full shadow-lg"></div>
                 <span>Ganhos atrativos</span>
               </div>
               <div className="flex items-center space-x-3">
-                <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+                <div className="w-3 h-3 bg-green-400 rounded-full shadow-lg"></div>
                 <span>Suporte 24/7</span>
               </div>
             </div>
@@ -84,7 +111,7 @@ const CadastroMotorista = () => {
 
           {/* Seção da direita - Formulário */}
           <div className="flex-1 w-full max-w-md">
-            <Card className="bg-white shadow-2xl">
+            <Card className="bg-white shadow-2xl border-0 rounded-2xl">
               <CardContent className="p-8">
                 <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">
                   Torne-se um motorista
@@ -102,7 +129,7 @@ const CadastroMotorista = () => {
                       placeholder="Digite o endereço de e-mail"
                       value={formData.email}
                       onChange={(e) => handleInputChange('email', e.target.value)}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-viagemja-blue focus:border-transparent"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
                       required
                     />
                   </div>
@@ -117,10 +144,10 @@ const CadastroMotorista = () => {
                         value={formData.codigoPais} 
                         onValueChange={(value) => handleInputChange('codigoPais', value)}
                       >
-                        <SelectTrigger className="w-32 px-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-viagemja-blue focus:border-transparent">
+                        <SelectTrigger className="w-32 px-3 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent">
                           <SelectValue />
                         </SelectTrigger>
-                        <SelectContent className="max-h-60">
+                        <SelectContent className="max-h-60 bg-white">
                           {countryCodes.map((country, index) => (
                             <SelectItem key={index} value={country.code}>
                               <div className="flex items-center space-x-2">
@@ -137,34 +164,30 @@ const CadastroMotorista = () => {
                         placeholder="Número de telefone"
                         value={formData.telefone}
                         onChange={(e) => handleInputChange('telefone', e.target.value)}
-                        className="flex-1 px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-viagemja-blue focus:border-transparent"
+                        className="flex-1 px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
                         required
                       />
                     </div>
                   </div>
 
-                  {/* Cidade */}
+                  {/* País */}
                   <div className="space-y-2">
-                    <Label htmlFor="cidade" className="text-sm font-medium text-gray-700">
-                      Cidade onde você irá dirigir *
+                    <Label htmlFor="pais" className="text-sm font-medium text-gray-700">
+                      País onde você irá dirigir *
                     </Label>
-                    <Select onValueChange={(value) => handleInputChange('cidade', value)}>
-                      <SelectTrigger className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-viagemja-blue focus:border-transparent">
-                        <SelectValue placeholder="Selecione sua cidade" />
+                    <Select onValueChange={(value) => handleInputChange('pais', value)}>
+                      <SelectTrigger className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                        <SelectValue placeholder="Selecione seu país" />
                       </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="sao-paulo">São Paulo - SP</SelectItem>
-                        <SelectItem value="rio-de-janeiro">Rio de Janeiro - RJ</SelectItem>
-                        <SelectItem value="belo-horizonte">Belo Horizonte - MG</SelectItem>
-                        <SelectItem value="brasilia">Brasília - DF</SelectItem>
-                        <SelectItem value="salvador">Salvador - BA</SelectItem>
-                        <SelectItem value="fortaleza">Fortaleza - CE</SelectItem>
-                        <SelectItem value="curitiba">Curitiba - PR</SelectItem>
-                        <SelectItem value="recife">Recife - PE</SelectItem>
-                        <SelectItem value="porto-alegre">Porto Alegre - RS</SelectItem>
-                        <SelectItem value="manaus">Manaus - AM</SelectItem>
-                        <SelectItem value="belem">Belém - PA</SelectItem>
-                        <SelectItem value="goiania">Goiânia - GO</SelectItem>
+                      <SelectContent className="bg-white">
+                        {countries.map((country) => (
+                          <SelectItem key={country.value} value={country.value}>
+                            <div className="flex items-center space-x-2">
+                              <span>{country.flag}</span>
+                              <span>{country.label}</span>
+                            </div>
+                          </SelectItem>
+                        ))}
                       </SelectContent>
                     </Select>
                   </div>
@@ -179,8 +202,8 @@ const CadastroMotorista = () => {
                     />
                     <Label htmlFor="termos" className="text-xs text-gray-600 leading-relaxed">
                       Ao se registrar, você concorda com nossos{' '}
-                      <a href="#" className="text-green-500 underline hover:text-green-600">Termos de Serviço</a>,{' '}
-                      <a href="#" className="text-green-500 underline hover:text-green-600">Política de Privacidade</a>, 
+                      <a href="#" className="text-blue-600 underline hover:text-blue-700">Termos de Serviço</a>,{' '}
+                      <a href="#" className="text-blue-600 underline hover:text-blue-700">Política de Privacidade</a>, 
                       e compromete-se a cumprir as obrigações legais e fornecer apenas serviços jurídicos na Plataforma ViagemJá.
                     </Label>
                   </div>
@@ -192,8 +215,8 @@ const CadastroMotorista = () => {
                   {/* Botão de submit */}
                   <Button
                     type="submit"
-                    className="w-full bg-green-500 hover:bg-green-600 text-white py-4 rounded-full font-semibold text-lg transition-colors"
-                    disabled={!formData.aceitaTermos || !formData.email || !formData.telefone || !formData.cidade}
+                    className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white py-4 rounded-full font-semibold text-lg transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105"
+                    disabled={!formData.aceitaTermos || !formData.email || !formData.telefone || !formData.pais}
                   >
                     Registrar como motorista
                   </Button>
@@ -202,7 +225,7 @@ const CadastroMotorista = () => {
                 <div className="mt-6 text-center">
                   <p className="text-sm text-gray-500">
                     Já tem uma conta?{' '}
-                    <a href="/login" className="text-green-500 hover:text-green-600 font-medium">
+                    <a href="/login" className="text-blue-600 hover:text-blue-700 font-medium">
                       Faça login
                     </a>
                   </p>
