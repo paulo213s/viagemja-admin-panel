@@ -13,6 +13,7 @@ import Admin from "./pages/Admin";
 import NotFound from "./pages/NotFound";
 import SolicitarCorrida from "./pages/SolicitarCorrida";
 import DownloadApp from "./pages/DownloadApp";
+import CadastroMotorista from "./pages/CadastroMotorista";
 
 const queryClient = new QueryClient();
 
@@ -30,6 +31,7 @@ const App = () => (
             <Route path="/admin" element={<Admin />} />
             <Route path="/solicitar-corrida" element={<SolicitarCorrida />} />
             <Route path="/download-app" element={<DownloadApp />} />
+            <Route path="/cadastro-motorista" element={<CadastroMotorista />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

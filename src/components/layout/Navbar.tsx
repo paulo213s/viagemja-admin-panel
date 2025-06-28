@@ -28,15 +28,32 @@ export const Navbar = () => {
         </Link>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center space-x-6">
-          <Link to="/" className="text-gray-700 hover:text-viagemja-blue transition">
-            Home
+        <div className="hidden md:flex items-center space-x-8">
+          <Link to="/" className="text-gray-700 hover:text-viagemja-blue transition font-medium">
+            Chaves de fenda
           </Link>
+          <Link to="/visao-geral" className="text-gray-700 hover:text-viagemja-blue transition font-medium">
+            Visão geral
+          </Link>
+          <Link to="/como-funciona" className="text-gray-700 hover:text-viagemja-blue transition font-medium">
+            Como funciona
+          </Link>
+          <Link to="/perguntas-frequentes" className="text-gray-700 hover:text-viagemja-blue transition font-medium">
+            Perguntas frequentes
+          </Link>
+          <Link to="/seguranca" className="text-gray-700 hover:text-viagemja-blue transition font-medium">
+            Segurança do motorista
+          </Link>
+          <Link to="/conecte-se" className="text-gray-700 hover:text-viagemja-blue transition font-medium">
+            Conecte-se
+          </Link>
+          
           {currentUser?.tipo === 'admin' && (
-            <Link to="/admin" className="text-gray-700 hover:text-viagemja-blue transition">
+            <Link to="/admin" className="text-gray-700 hover:text-viagemja-blue transition font-medium">
               Painel Admin
             </Link>
           )}
+          
           {currentUser ? (
             <div className="flex items-center space-x-4">
               <span className="text-gray-700">Olá, {currentUser.nome.split(' ')[0]}</span>
@@ -49,8 +66,10 @@ export const Navbar = () => {
               <Link to="/login">
                 <Button variant="outline" className="w-full">Login</Button>
               </Link>
-              <Link to="/cadastro">
-                <Button className="w-full">Cadastre-se</Button>
+              <Link to="/cadastro-motorista">
+                <Button className="bg-green-500 hover:bg-green-600 text-white px-6 py-2 rounded-full font-semibold">
+                  Candidate-se para dirigir
+                </Button>
               </Link>
             </div>
           )}
@@ -71,7 +90,22 @@ export const Navbar = () => {
             <SheetContent>
               <div className="flex flex-col space-y-4 mt-6">
                 <Link to="/" className="text-gray-700 hover:text-viagemja-blue transition text-lg py-2">
-                  Home
+                  Chaves de fenda
+                </Link>
+                <Link to="/visao-geral" className="text-gray-700 hover:text-viagemja-blue transition text-lg py-2">
+                  Visão geral
+                </Link>
+                <Link to="/como-funciona" className="text-gray-700 hover:text-viagemja-blue transition text-lg py-2">
+                  Como funciona
+                </Link>
+                <Link to="/perguntas-frequentes" className="text-gray-700 hover:text-viagemja-blue transition text-lg py-2">
+                  Perguntas frequentes
+                </Link>
+                <Link to="/seguranca" className="text-gray-700 hover:text-viagemja-blue transition text-lg py-2">
+                  Segurança do motorista
+                </Link>
+                <Link to="/conecte-se" className="text-gray-700 hover:text-viagemja-blue transition text-lg py-2">
+                  Conecte-se
                 </Link>
                 {currentUser?.tipo === 'admin' && (
                   <Link to="/admin" className="text-gray-700 hover:text-viagemja-blue transition text-lg py-2">
@@ -90,8 +124,10 @@ export const Navbar = () => {
                     <Link to="/login" className="w-full">
                       <Button variant="outline" className="w-full">Login</Button>
                     </Link>
-                    <Link to="/cadastro" className="w-full">
-                      <Button className="w-full">Cadastre-se</Button>
+                    <Link to="/cadastro-motorista" className="w-full">
+                      <Button className="bg-green-500 hover:bg-green-600 text-white w-full">
+                        Candidate-se para dirigir
+                      </Button>
                     </Link>
                   </>
                 )}
